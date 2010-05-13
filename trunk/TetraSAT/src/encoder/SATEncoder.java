@@ -19,13 +19,13 @@ public class SATEncoder {
 		sideLength = (int) Math.sqrt(numberOfBlocks);
 
 		encodeRules();
+		System.out.println("ENCODING TERMINATED");
 
 	}
 
 	private void encodeRules() {
 		staticRules();
 		dynamicRules();
-//		System.out.println(rulesList);
 		try {
 			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("./rules.txt"));
 			bufferedWriter.write(rulesList);
@@ -104,7 +104,11 @@ public class SATEncoder {
 								}
 							}
 							if(incompatible) {
-								rulesList += "~block_" + i + "_in_square_" + j + " ~block_" + k + "_in_square_" + l + " $\n";
+								String rule = "~block_" + i + "_in_square_" + j + " ~block_" + k + "_in_square_" + l + " $\n";
+								String reverseRule = "~block_" + k + "_in_square_" + l + " ~block_" + i + "_in_square_" + j + " $\n";
+								if(!rulesList.contains(reverseRule)) {
+									rulesList += rule;
+								}
 								incompatible = false;
 							}
 						}

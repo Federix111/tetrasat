@@ -60,7 +60,7 @@ public class Block {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return ""+top+" "+right+" "+ down + " "+ left+", ";
+		return ""+top+" "+right+" "+ down + " "+ left+"";
 	}
 	
 	

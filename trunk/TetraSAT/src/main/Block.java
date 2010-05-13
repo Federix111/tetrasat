@@ -14,6 +14,16 @@ public class Block {
 		this.down = down;
 		this.left = left;
 	}
+	
+	public Block(String blockString){
+		char[] test = blockString.toCharArray();
+		this.top = Integer.parseInt(Character.toString(test[0]));
+		this.right = Integer.parseInt(Character.toString(test[1]));
+		this.down = Integer.parseInt(Character.toString(test[2]));
+		this.left = Integer.parseInt(Character.toString(test[3]));
+		
+		
+	}
 
 	public int getTop() {
 		return top;
@@ -46,5 +56,12 @@ public class Block {
 	public void setLeft(int left) {
 		this.left = left;
 	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return ""+top+" "+right+" "+ down + " "+ left+", ";
+	}
+	
 	
 }

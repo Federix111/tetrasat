@@ -11,6 +11,7 @@ import main.Field;
 
 public class SATEncoderTestCase {
 
+	private static String output = "";
 	/**
 	 * @param args
 	 */
@@ -19,7 +20,8 @@ public class SATEncoderTestCase {
 		String freddCommand = " /sw/bin/miniwrapper -m /Users/Fredd/Documents/workspace/TetraSAT/rules.txt";
 		String hCommand = " /sw/bin/miniwrapper -m /Users/LoL/Documents/workspace/TetraSAT/rules.txt";
 		
-		BlockInputParser parser = new BlockInputParser("input/testBlocks");
+		
+		BlockInputParser parser = new BlockInputParser("input/realTetra");
 		
 		Field field = parser.getField();
 		
@@ -32,22 +34,36 @@ public class SATEncoderTestCase {
 		
 		System.out.println((end-start) + "ms");
 		
-		try
-		{
-			Process proc = Runtime.getRuntime().exec(freddCommand);
-			BufferedReader read=new BufferedReader(new InputStreamReader(proc.getInputStream()));
-
-			while(read.ready())
+		while(output == "") {
+			try
 			{
-				System.out.println(read.readLine());
+				Process proc = Runtime.getRuntime().exec(freddCommand);
+				BufferedReader read=new BufferedReader(new InputStreamReader(proc.getInputStream()));
+
+				while(read.ready())
+				{
+					output += read.readLine();
+				}
+			}
+			catch(IOException e)
+			{
+				e.printStackTrace();
+			}
+
+			if(output.contains("unsatisfiable")) {
+				System.out.println("UNSATISFIABLE");
+			} else {
+				processOuput();
 			}
 		}
-		catch(IOException e)
-		{
-			e.printStackTrace();
-		}
+
+	}
+
+	private static void processOuput() {
+		System.out.println("SATISFIABLE");
 		
-		
+		//LOL!!!
+		System.out.println(output.subSequence(output.indexOf("Solving ... done (time elapsed ")+"Solving ... done (time elapsed ".length(), output.indexOf("s)", output.indexOf("Solving ... done (time elapsed "))) + "s");
 	}
 
 }

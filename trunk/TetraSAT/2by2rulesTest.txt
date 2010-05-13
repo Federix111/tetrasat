@@ -1,4 +1,4 @@
-//only one block per square
+# only one block per square
 
 ~block_A_in_square_A ~block_A_in_square_B $
 ~block_A_in_square_A ~block_A_in_square_C $
@@ -29,7 +29,7 @@
 ~block_D_in_square_C ~block_D_in_square_D $
 
 
-//each square contains only one block
+# each square contains only one block
 
 ~block_A_in_square_A ~block_B_in_square_A $
 ~block_A_in_square_A ~block_C_in_square_A $
@@ -60,7 +60,7 @@
 ~block_C_in_square_D ~block_D_in_square_D $
 
 
-//each block is in a square
+# each block is in a square
 
 block_A_in_square_A block_A_in_square_B block_A_in_square_C block_A_in_square_D $
 block_B_in_square_A block_B_in_square_B block_B_in_square_C block_B_in_square_D $
@@ -68,898 +68,85 @@ block_C_in_square_A block_C_in_square_B block_C_in_square_C block_C_in_square_D 
 block_D_in_square_A block_D_in_square_B block_D_in_square_C block_D_in_square_D $
 
 
+# blocks: A=>1234 B=>3412 C=>3412 D=>1234
 
+# block A impossible neighbors
 
-//////////DON'T USE AFTER THIS POINT
+~block_A_in_square_A ~block_D_in_square_B $
+~block_A_in_square_A ~block_D_in_square_C $
 
-//blocks content descriptions
+~block_A_in_square_B ~block_D_in_square_A $
+~block_A_in_square_B ~block_D_in_square_D $
 
-block_A_top_is_0 block_A_top_is_1 block_A_top_is_2 block_A_top_is_3 block_A_top_is_4 block_A_top_is_5 block_A_top_is_6 block_A_top_is_7 block_A_top_is_8 block_A_top_is_9 $
-block_A_right_is_0 block_A_right_is_1 block_A_right_is_2 block_A_right_is_3 block_A_right_is_4 block_A_right_is_5 block_A_right_is_6 block_A_right_is_7 block_A_right_is_8 block_A_right_is_9 $
-block_A_bottom_is_0 block_A_bottom_is_1 block_A_bottom_is_2 block_A_bottom_is_3 block_A_bottom_is_4 block_A_bottom_is_5 block_A_bottom_is_6 block_A_bottom_is_7 block_A_bottom_is_8 block_A_bottom_is_9 $
-block_A_left_is_0 block_A_left_is_1 block_A_left_is_2 block_A_left_is_3 block_A_left_is_4 block_A_left_is_5 block_A_left_is_6 block_A_left_is_7 block_A_left_is_8 block_A_left_is_9 $
+~block_A_in_square_C ~block_D_in_square_A $
+~block_A_in_square_C ~block_D_in_square_D $
 
-block_B_top_is_0 block_B_top_is_1 block_B_top_is_2 block_B_top_is_3 block_B_top_is_4 block_B_top_is_5 block_B_top_is_6 block_B_top_is_7 block_B_top_is_8 block_B_top_is_9 $
-block_B_right_is_0 block_B_right_is_1 block_B_right_is_2 block_B_right_is_3 block_B_right_is_4 block_B_right_is_5 block_B_right_is_6 block_B_right_is_7 block_B_right_is_8 block_B_right_is_9 $
-block_B_bottom_is_0 block_B_bottom_is_1 block_B_bottom_is_2 block_B_bottom_is_3 block_B_bottom_is_4 block_B_bottom_is_5 block_B_bottom_is_6 block_B_bottom_is_7 block_B_bottom_is_8 block_B_bottom_is_9 $
-block_B_left_is_0 block_B_left_is_1 block_B_left_is_2 block_B_left_is_3 block_B_left_is_4 block_B_left_is_5 block_B_left_is_6 block_B_left_is_7 block_B_left_is_8 block_B_left_is_9 $
+~block_A_in_square_D ~block_D_in_square_B $
+~block_A_in_square_D ~block_D_in_square_C $
 
-block_C_top_is_0 block_C_top_is_1 block_C_top_is_2 block_C_top_is_3 block_C_top_is_4 block_C_top_is_5 block_C_top_is_6 block_C_top_is_7 block_C_top_is_8 block_C_top_is_9 $
-block_C_right_is_0 block_C_right_is_1 block_C_right_is_2 block_C_right_is_3 block_C_right_is_4 block_C_right_is_5 block_C_right_is_6 block_C_right_is_7 block_C_right_is_8 block_C_right_is_9 $
-block_C_bottom_is_0 block_C_bottom_is_1 block_C_bottom_is_2 block_C_bottom_is_3 block_C_bottom_is_4 block_C_bottom_is_5 block_C_bottom_is_6 block_C_bottom_is_7 block_C_bottom_is_8 block_C_bottom_is_9 $
-block_C_left_is_0 block_C_left_is_1 block_C_left_is_2 block_C_left_is_3 block_C_left_is_4 block_C_left_is_5 block_C_left_is_6 block_C_left_is_7 block_C_left_is_8 block_C_left_is_9 $
 
-block_D_top_is_0 block_D_top_is_1 block_D_top_is_2 block_D_top_is_3 block_D_top_is_4 block_D_top_is_5 block_D_top_is_6 block_D_top_is_7 block_D_top_is_8 block_D_top_is_9 $
-block_D_right_is_0 block_D_right_is_1 block_D_right_is_2 block_D_right_is_3 block_D_right_is_4 block_D_right_is_5 block_D_right_is_6 block_D_right_is_7 block_D_right_is_8 block_D_right_is_9 $
-block_D_bottom_is_0 block_D_bottom_is_1 block_D_bottom_is_2 block_D_bottom_is_3 block_D_bottom_is_4 block_D_bottom_is_5 block_D_bottom_is_6 block_D_bottom_is_7 block_D_bottom_is_8 block_D_bottom_is_9 $
-block_D_left_is_0 block_D_left_is_1 block_D_left_is_2 block_D_left_is_3 block_D_left_is_4 block_D_left_is_5 block_D_left_is_6 block_D_left_is_7 block_D_left_is_8 block_D_left_is_9 $
+# block B impossible neighbors
 
+~block_B_in_square_A ~block_C_in_square_B $
+~block_B_in_square_A ~block_C_in_square_C $
 
-//blocks content limitations
+~block_B_in_square_B ~block_C_in_square_A $
+~block_B_in_square_B ~block_C_in_square_D $
 
-~block_A_top_is_0 ~block_A_top_is_1 $
-~block_A_top_is_0 ~block_A_top_is_2 $
-~block_A_top_is_0 ~block_A_top_is_3 $
-~block_A_top_is_0 ~block_A_top_is_4 $
-~block_A_top_is_0 ~block_A_top_is_5 $
-~block_A_top_is_0 ~block_A_top_is_6 $
-~block_A_top_is_0 ~block_A_top_is_7 $
-~block_A_top_is_0 ~block_A_top_is_8 $
-~block_A_top_is_0 ~block_A_top_is_9 $
+~block_B_in_square_C ~block_C_in_square_A $
+~block_B_in_square_C ~block_C_in_square_D $
 
-~block_A_top_is_1 ~block_A_top_is_2 $
-~block_A_top_is_1 ~block_A_top_is_3 $
-~block_A_top_is_1 ~block_A_top_is_4 $
-~block_A_top_is_1 ~block_A_top_is_5 $
-~block_A_top_is_1 ~block_A_top_is_6 $
-~block_A_top_is_1 ~block_A_top_is_7 $
-~block_A_top_is_1 ~block_A_top_is_8 $
-~block_A_top_is_1 ~block_A_top_is_9 $
+~block_B_in_square_D ~block_C_in_square_B $
+~block_B_in_square_D ~block_C_in_square_C $
 
-~block_A_top_is_2 ~block_A_top_is_3 $
-~block_A_top_is_2 ~block_A_top_is_4 $
-~block_A_top_is_2 ~block_A_top_is_5 $
-~block_A_top_is_2 ~block_A_top_is_6 $
-~block_A_top_is_2 ~block_A_top_is_7 $
-~block_A_top_is_2 ~block_A_top_is_8 $
-~block_A_top_is_2 ~block_A_top_is_9 $
 
-~block_A_top_is_3 ~block_A_top_is_4 $
-~block_A_top_is_3 ~block_A_top_is_5 $
-~block_A_top_is_3 ~block_A_top_is_6 $
-~block_A_top_is_3 ~block_A_top_is_7 $
-~block_A_top_is_3 ~block_A_top_is_8 $
-~block_A_top_is_3 ~block_A_top_is_9 $
+# block C impossible neighbors
 
-~block_A_top_is_4 ~block_A_top_is_5 $
-~block_A_top_is_4 ~block_A_top_is_6 $
-~block_A_top_is_4 ~block_A_top_is_7 $
-~block_A_top_is_4 ~block_A_top_is_8 $
-~block_A_top_is_4 ~block_A_top_is_9 $
+~block_C_in_square_A ~block_B_in_square_B $
+~block_C_in_square_A ~block_B_in_square_C $
 
-~block_A_top_is_5 ~block_A_top_is_6 $
-~block_A_top_is_5 ~block_A_top_is_7 $
-~block_A_top_is_5 ~block_A_top_is_8 $
-~block_A_top_is_5 ~block_A_top_is_9 $
+~block_C_in_square_B ~block_B_in_square_A $
+~block_C_in_square_B ~block_B_in_square_D $
 
-~block_A_top_is_6 ~block_A_top_is_7 $
-~block_A_top_is_6 ~block_A_top_is_8 $
-~block_A_top_is_6 ~block_A_top_is_9 $
+~block_C_in_square_C ~block_B_in_square_A $
+~block_C_in_square_C ~block_B_in_square_D $
 
-~block_A_top_is_7 ~block_A_top_is_8 $
-~block_A_top_is_7 ~block_A_top_is_9 $
+~block_C_in_square_D ~block_B_in_square_B $
+~block_C_in_square_D ~block_B_in_square_C $
 
-~block_A_top_is_8 ~block_A_top_is_9 $
 
-~block_A_right_is_0 ~block_A_right_is_1 $
-~block_A_right_is_0 ~block_A_right_is_2 $
-~block_A_right_is_0 ~block_A_right_is_3 $
-~block_A_right_is_0 ~block_A_right_is_4 $
-~block_A_right_is_0 ~block_A_right_is_5 $
-~block_A_right_is_0 ~block_A_right_is_6 $
-~block_A_right_is_0 ~block_A_right_is_7 $
-~block_A_right_is_0 ~block_A_right_is_8 $
-~block_A_right_is_0 ~block_A_right_is_9 $
+# block D impossible neighbors
 
-~block_A_right_is_1 ~block_A_right_is_2 $
-~block_A_right_is_1 ~block_A_right_is_3 $
-~block_A_right_is_1 ~block_A_right_is_4 $
-~block_A_right_is_1 ~block_A_right_is_5 $
-~block_A_right_is_1 ~block_A_right_is_6 $
-~block_A_right_is_1 ~block_A_right_is_7 $
-~block_A_right_is_1 ~block_A_right_is_8 $
-~block_A_right_is_1 ~block_A_right_is_9 $
+~block_D_in_square_A ~block_A_in_square_B $
+~block_D_in_square_A ~block_A_in_square_C $
 
-~block_A_right_is_2 ~block_A_right_is_3 $
-~block_A_right_is_2 ~block_A_right_is_4 $
-~block_A_right_is_2 ~block_A_right_is_5 $
-~block_A_right_is_2 ~block_A_right_is_6 $
-~block_A_right_is_2 ~block_A_right_is_7 $
-~block_A_right_is_2 ~block_A_right_is_8 $
-~block_A_right_is_2 ~block_A_right_is_9 $
+~block_D_in_square_B ~block_A_in_square_A $
+~block_D_in_square_B ~block_A_in_square_D $
 
-~block_A_right_is_3 ~block_A_right_is_4 $
-~block_A_right_is_3 ~block_A_right_is_5 $
-~block_A_right_is_3 ~block_A_right_is_6 $
-~block_A_right_is_3 ~block_A_right_is_7 $
-~block_A_right_is_3 ~block_A_right_is_8 $
-~block_A_right_is_3 ~block_A_right_is_9 $
+~block_D_in_square_C ~block_A_in_square_A $
+~block_D_in_square_C ~block_A_in_square_D $
 
-~block_A_right_is_4 ~block_A_right_is_5 $
-~block_A_right_is_4 ~block_A_right_is_6 $
-~block_A_right_is_4 ~block_A_right_is_7 $
-~block_A_right_is_4 ~block_A_right_is_8 $
-~block_A_right_is_4 ~block_A_right_is_9 $
+~block_D_in_square_D ~block_A_in_square_B $
+~block_D_in_square_D ~block_A_in_square_C $
 
-~block_A_right_is_5 ~block_A_right_is_6 $
-~block_A_right_is_5 ~block_A_right_is_7 $
-~block_A_right_is_5 ~block_A_right_is_8 $
-~block_A_right_is_5 ~block_A_right_is_9 $
 
-~block_A_right_is_6 ~block_A_right_is_7 $
-~block_A_right_is_6 ~block_A_right_is_8 $
-~block_A_right_is_6 ~block_A_right_is_9 $
+# limitations
+#~block_A_in_square_D $
+#~block_B_in_square_C $
+#~block_C_in_square_B $
+#~block_D_in_square_A $
 
-~block_A_right_is_7 ~block_A_right_is_8 $
-~block_A_right_is_7 ~block_A_right_is_9 $
+#~block_A_in_square_C $
+#~block_B_in_square_D $
+#~block_C_in_square_A $
+#~block_D_in_square_B $
 
-~block_A_right_is_8 ~block_A_right_is_9 $
+#~block_A_in_square_B $
+#~block_B_in_square_A $
+#~block_C_in_square_D $
+#~block_D_in_square_C $
 
-~block_A_bottom_is_0 ~block_A_bottom_is_1 $
-~block_A_bottom_is_0 ~block_A_bottom_is_2 $
-~block_A_bottom_is_0 ~block_A_bottom_is_3 $
-~block_A_bottom_is_0 ~block_A_bottom_is_4 $
-~block_A_bottom_is_0 ~block_A_bottom_is_5 $
-~block_A_bottom_is_0 ~block_A_bottom_is_6 $
-~block_A_bottom_is_0 ~block_A_bottom_is_7 $
-~block_A_bottom_is_0 ~block_A_bottom_is_8 $
-~block_A_bottom_is_0 ~block_A_bottom_is_9 $
-
-~block_A_bottom_is_1 ~block_A_bottom_is_2 $
-~block_A_bottom_is_1 ~block_A_bottom_is_3 $
-~block_A_bottom_is_1 ~block_A_bottom_is_4 $
-~block_A_bottom_is_1 ~block_A_bottom_is_5 $
-~block_A_bottom_is_1 ~block_A_bottom_is_6 $
-~block_A_bottom_is_1 ~block_A_bottom_is_7 $
-~block_A_bottom_is_1 ~block_A_bottom_is_8 $
-~block_A_bottom_is_1 ~block_A_bottom_is_9 $
-
-~block_A_bottom_is_2 ~block_A_bottom_is_3 $
-~block_A_bottom_is_2 ~block_A_bottom_is_4 $
-~block_A_bottom_is_2 ~block_A_bottom_is_5 $
-~block_A_bottom_is_2 ~block_A_bottom_is_6 $
-~block_A_bottom_is_2 ~block_A_bottom_is_7 $
-~block_A_bottom_is_2 ~block_A_bottom_is_8 $
-~block_A_bottom_is_2 ~block_A_bottom_is_9 $
-
-~block_A_bottom_is_3 ~block_A_bottom_is_4 $
-~block_A_bottom_is_3 ~block_A_bottom_is_5 $
-~block_A_bottom_is_3 ~block_A_bottom_is_6 $
-~block_A_bottom_is_3 ~block_A_bottom_is_7 $
-~block_A_bottom_is_3 ~block_A_bottom_is_8 $
-~block_A_bottom_is_3 ~block_A_bottom_is_9 $
-
-~block_A_bottom_is_4 ~block_A_bottom_is_5 $
-~block_A_bottom_is_4 ~block_A_bottom_is_6 $
-~block_A_bottom_is_4 ~block_A_bottom_is_7 $
-~block_A_bottom_is_4 ~block_A_bottom_is_8 $
-~block_A_bottom_is_4 ~block_A_bottom_is_9 $
-
-~block_A_bottom_is_5 ~block_A_bottom_is_6 $
-~block_A_bottom_is_5 ~block_A_bottom_is_7 $
-~block_A_bottom_is_5 ~block_A_bottom_is_8 $
-~block_A_bottom_is_5 ~block_A_bottom_is_9 $
-
-~block_A_bottom_is_6 ~block_A_bottom_is_7 $
-~block_A_bottom_is_6 ~block_A_bottom_is_8 $
-~block_A_bottom_is_6 ~block_A_bottom_is_9 $
-
-~block_A_bottom_is_7 ~block_A_bottom_is_8 $
-~block_A_bottom_is_7 ~block_A_bottom_is_9 $
-
-~block_A_bottom_is_8 ~block_A_bottom_is_9 $
-
-~block_A_left_is_0 ~block_A_left_is_1 $
-~block_A_left_is_0 ~block_A_left_is_2 $
-~block_A_left_is_0 ~block_A_left_is_3 $
-~block_A_left_is_0 ~block_A_left_is_4 $
-~block_A_left_is_0 ~block_A_left_is_5 $
-~block_A_left_is_0 ~block_A_left_is_6 $
-~block_A_left_is_0 ~block_A_left_is_7 $
-~block_A_left_is_0 ~block_A_left_is_8 $
-~block_A_left_is_0 ~block_A_left_is_9 $
-
-~block_A_left_is_1 ~block_A_left_is_2 $
-~block_A_left_is_1 ~block_A_left_is_3 $
-~block_A_left_is_1 ~block_A_left_is_4 $
-~block_A_left_is_1 ~block_A_left_is_5 $
-~block_A_left_is_1 ~block_A_left_is_6 $
-~block_A_left_is_1 ~block_A_left_is_7 $
-~block_A_left_is_1 ~block_A_left_is_8 $
-~block_A_left_is_1 ~block_A_left_is_9 $
-
-~block_A_left_is_2 ~block_A_left_is_3 $
-~block_A_left_is_2 ~block_A_left_is_4 $
-~block_A_left_is_2 ~block_A_left_is_5 $
-~block_A_left_is_2 ~block_A_left_is_6 $
-~block_A_left_is_2 ~block_A_left_is_7 $
-~block_A_left_is_2 ~block_A_left_is_8 $
-~block_A_left_is_2 ~block_A_left_is_9 $
-
-~block_A_left_is_3 ~block_A_left_is_4 $
-~block_A_left_is_3 ~block_A_left_is_5 $
-~block_A_left_is_3 ~block_A_left_is_6 $
-~block_A_left_is_3 ~block_A_left_is_7 $
-~block_A_left_is_3 ~block_A_left_is_8 $
-~block_A_left_is_3 ~block_A_left_is_9 $
-
-~block_A_left_is_4 ~block_A_left_is_5 $
-~block_A_left_is_4 ~block_A_left_is_6 $
-~block_A_left_is_4 ~block_A_left_is_7 $
-~block_A_left_is_4 ~block_A_left_is_8 $
-~block_A_left_is_4 ~block_A_left_is_9 $
-
-~block_A_left_is_5 ~block_A_left_is_6 $
-~block_A_left_is_5 ~block_A_left_is_7 $
-~block_A_left_is_5 ~block_A_left_is_8 $
-~block_A_left_is_5 ~block_A_left_is_9 $
-
-~block_A_left_is_6 ~block_A_left_is_7 $
-~block_A_left_is_6 ~block_A_left_is_8 $
-~block_A_left_is_6 ~block_A_left_is_9 $
-
-~block_A_left_is_7 ~block_A_left_is_8 $
-~block_A_left_is_7 ~block_A_left_is_9 $
-
-~block_A_left_is_8 ~block_A_left_is_9 $
-
-~block_B_top_is_0 ~block_B_top_is_1 $
-~block_B_top_is_0 ~block_B_top_is_2 $
-~block_B_top_is_0 ~block_B_top_is_3 $
-~block_B_top_is_0 ~block_B_top_is_4 $
-~block_B_top_is_0 ~block_B_top_is_5 $
-~block_B_top_is_0 ~block_B_top_is_6 $
-~block_B_top_is_0 ~block_B_top_is_7 $
-~block_B_top_is_0 ~block_B_top_is_8 $
-~block_B_top_is_0 ~block_B_top_is_9 $
-
-~block_B_top_is_1 ~block_B_top_is_2 $
-~block_B_top_is_1 ~block_B_top_is_3 $
-~block_B_top_is_1 ~block_B_top_is_4 $
-~block_B_top_is_1 ~block_B_top_is_5 $
-~block_B_top_is_1 ~block_B_top_is_6 $
-~block_B_top_is_1 ~block_B_top_is_7 $
-~block_B_top_is_1 ~block_B_top_is_8 $
-~block_B_top_is_1 ~block_B_top_is_9 $
-
-~block_B_top_is_2 ~block_B_top_is_3 $
-~block_B_top_is_2 ~block_B_top_is_4 $
-~block_B_top_is_2 ~block_B_top_is_5 $
-~block_B_top_is_2 ~block_B_top_is_6 $
-~block_B_top_is_2 ~block_B_top_is_7 $
-~block_B_top_is_2 ~block_B_top_is_8 $
-~block_B_top_is_2 ~block_B_top_is_9 $
-
-~block_B_top_is_3 ~block_B_top_is_4 $
-~block_B_top_is_3 ~block_B_top_is_5 $
-~block_B_top_is_3 ~block_B_top_is_6 $
-~block_B_top_is_3 ~block_B_top_is_7 $
-~block_B_top_is_3 ~block_B_top_is_8 $
-~block_B_top_is_3 ~block_B_top_is_9 $
-
-~block_B_top_is_4 ~block_B_top_is_5 $
-~block_B_top_is_4 ~block_B_top_is_6 $
-~block_B_top_is_4 ~block_B_top_is_7 $
-~block_B_top_is_4 ~block_B_top_is_8 $
-~block_B_top_is_4 ~block_B_top_is_9 $
-
-~block_B_top_is_5 ~block_B_top_is_6 $
-~block_B_top_is_5 ~block_B_top_is_7 $
-~block_B_top_is_5 ~block_B_top_is_8 $
-~block_B_top_is_5 ~block_B_top_is_9 $
-
-~block_B_top_is_6 ~block_B_top_is_7 $
-~block_B_top_is_6 ~block_B_top_is_8 $
-~block_B_top_is_6 ~block_B_top_is_9 $
-
-~block_B_top_is_7 ~block_B_top_is_8 $
-~block_B_top_is_7 ~block_B_top_is_9 $
-
-~block_B_top_is_8 ~block_B_top_is_9 $
-
-~block_B_right_is_0 ~block_B_right_is_1 $
-~block_B_right_is_0 ~block_B_right_is_2 $
-~block_B_right_is_0 ~block_B_right_is_3 $
-~block_B_right_is_0 ~block_B_right_is_4 $
-~block_B_right_is_0 ~block_B_right_is_5 $
-~block_B_right_is_0 ~block_B_right_is_6 $
-~block_B_right_is_0 ~block_B_right_is_7 $
-~block_B_right_is_0 ~block_B_right_is_8 $
-~block_B_right_is_0 ~block_B_right_is_9 $
-
-~block_B_right_is_1 ~block_B_right_is_2 $
-~block_B_right_is_1 ~block_B_right_is_3 $
-~block_B_right_is_1 ~block_B_right_is_4 $
-~block_B_right_is_1 ~block_B_right_is_5 $
-~block_B_right_is_1 ~block_B_right_is_6 $
-~block_B_right_is_1 ~block_B_right_is_7 $
-~block_B_right_is_1 ~block_B_right_is_8 $
-~block_B_right_is_1 ~block_B_right_is_9 $
-
-~block_B_right_is_2 ~block_B_right_is_3 $
-~block_B_right_is_2 ~block_B_right_is_4 $
-~block_B_right_is_2 ~block_B_right_is_5 $
-~block_B_right_is_2 ~block_B_right_is_6 $
-~block_B_right_is_2 ~block_B_right_is_7 $
-~block_B_right_is_2 ~block_B_right_is_8 $
-~block_B_right_is_2 ~block_B_right_is_9 $
-
-~block_B_right_is_3 ~block_B_right_is_4 $
-~block_B_right_is_3 ~block_B_right_is_5 $
-~block_B_right_is_3 ~block_B_right_is_6 $
-~block_B_right_is_3 ~block_B_right_is_7 $
-~block_B_right_is_3 ~block_B_right_is_8 $
-~block_B_right_is_3 ~block_B_right_is_9 $
-
-~block_B_right_is_4 ~block_B_right_is_5 $
-~block_B_right_is_4 ~block_B_right_is_6 $
-~block_B_right_is_4 ~block_B_right_is_7 $
-~block_B_right_is_4 ~block_B_right_is_8 $
-~block_B_right_is_4 ~block_B_right_is_9 $
-
-~block_B_right_is_5 ~block_B_right_is_6 $
-~block_B_right_is_5 ~block_B_right_is_7 $
-~block_B_right_is_5 ~block_B_right_is_8 $
-~block_B_right_is_5 ~block_B_right_is_9 $
-
-~block_B_right_is_6 ~block_B_right_is_7 $
-~block_B_right_is_6 ~block_B_right_is_8 $
-~block_B_right_is_6 ~block_B_right_is_9 $
-
-~block_B_right_is_7 ~block_B_right_is_8 $
-~block_B_right_is_7 ~block_B_right_is_9 $
-
-~block_B_right_is_8 ~block_B_right_is_9 $
-
-~block_B_bottom_is_0 ~block_B_bottom_is_1 $
-~block_B_bottom_is_0 ~block_B_bottom_is_2 $
-~block_B_bottom_is_0 ~block_B_bottom_is_3 $
-~block_B_bottom_is_0 ~block_B_bottom_is_4 $
-~block_B_bottom_is_0 ~block_B_bottom_is_5 $
-~block_B_bottom_is_0 ~block_B_bottom_is_6 $
-~block_B_bottom_is_0 ~block_B_bottom_is_7 $
-~block_B_bottom_is_0 ~block_B_bottom_is_8 $
-~block_B_bottom_is_0 ~block_B_bottom_is_9 $
-
-~block_B_bottom_is_1 ~block_B_bottom_is_2 $
-~block_B_bottom_is_1 ~block_B_bottom_is_3 $
-~block_B_bottom_is_1 ~block_B_bottom_is_4 $
-~block_B_bottom_is_1 ~block_B_bottom_is_5 $
-~block_B_bottom_is_1 ~block_B_bottom_is_6 $
-~block_B_bottom_is_1 ~block_B_bottom_is_7 $
-~block_B_bottom_is_1 ~block_B_bottom_is_8 $
-~block_B_bottom_is_1 ~block_B_bottom_is_9 $
-
-~block_B_bottom_is_2 ~block_B_bottom_is_3 $
-~block_B_bottom_is_2 ~block_B_bottom_is_4 $
-~block_B_bottom_is_2 ~block_B_bottom_is_5 $
-~block_B_bottom_is_2 ~block_B_bottom_is_6 $
-~block_B_bottom_is_2 ~block_B_bottom_is_7 $
-~block_B_bottom_is_2 ~block_B_bottom_is_8 $
-~block_B_bottom_is_2 ~block_B_bottom_is_9 $
-
-~block_B_bottom_is_3 ~block_B_bottom_is_4 $
-~block_B_bottom_is_3 ~block_B_bottom_is_5 $
-~block_B_bottom_is_3 ~block_B_bottom_is_6 $
-~block_B_bottom_is_3 ~block_B_bottom_is_7 $
-~block_B_bottom_is_3 ~block_B_bottom_is_8 $
-~block_B_bottom_is_3 ~block_B_bottom_is_9 $
-
-~block_B_bottom_is_4 ~block_B_bottom_is_5 $
-~block_B_bottom_is_4 ~block_B_bottom_is_6 $
-~block_B_bottom_is_4 ~block_B_bottom_is_7 $
-~block_B_bottom_is_4 ~block_B_bottom_is_8 $
-~block_B_bottom_is_4 ~block_B_bottom_is_9 $
-
-~block_B_bottom_is_5 ~block_B_bottom_is_6 $
-~block_B_bottom_is_5 ~block_B_bottom_is_7 $
-~block_B_bottom_is_5 ~block_B_bottom_is_8 $
-~block_B_bottom_is_5 ~block_B_bottom_is_9 $
-
-~block_B_bottom_is_6 ~block_B_bottom_is_7 $
-~block_B_bottom_is_6 ~block_B_bottom_is_8 $
-~block_B_bottom_is_6 ~block_B_bottom_is_9 $
-
-~block_B_bottom_is_7 ~block_B_bottom_is_8 $
-~block_B_bottom_is_7 ~block_B_bottom_is_9 $
-
-~block_B_bottom_is_8 ~block_B_bottom_is_9 $
-
-~block_B_left_is_0 ~block_B_left_is_1 $
-~block_B_left_is_0 ~block_B_left_is_2 $
-~block_B_left_is_0 ~block_B_left_is_3 $
-~block_B_left_is_0 ~block_B_left_is_4 $
-~block_B_left_is_0 ~block_B_left_is_5 $
-~block_B_left_is_0 ~block_B_left_is_6 $
-~block_B_left_is_0 ~block_B_left_is_7 $
-~block_B_left_is_0 ~block_B_left_is_8 $
-~block_B_left_is_0 ~block_B_left_is_9 $
-
-~block_B_left_is_1 ~block_B_left_is_2 $
-~block_B_left_is_1 ~block_B_left_is_3 $
-~block_B_left_is_1 ~block_B_left_is_4 $
-~block_B_left_is_1 ~block_B_left_is_5 $
-~block_B_left_is_1 ~block_B_left_is_6 $
-~block_B_left_is_1 ~block_B_left_is_7 $
-~block_B_left_is_1 ~block_B_left_is_8 $
-~block_B_left_is_1 ~block_B_left_is_9 $
-
-~block_B_left_is_2 ~block_B_left_is_3 $
-~block_B_left_is_2 ~block_B_left_is_4 $
-~block_B_left_is_2 ~block_B_left_is_5 $
-~block_B_left_is_2 ~block_B_left_is_6 $
-~block_B_left_is_2 ~block_B_left_is_7 $
-~block_B_left_is_2 ~block_B_left_is_8 $
-~block_B_left_is_2 ~block_B_left_is_9 $
-
-~block_B_left_is_3 ~block_B_left_is_4 $
-~block_B_left_is_3 ~block_B_left_is_5 $
-~block_B_left_is_3 ~block_B_left_is_6 $
-~block_B_left_is_3 ~block_B_left_is_7 $
-~block_B_left_is_3 ~block_B_left_is_8 $
-~block_B_left_is_3 ~block_B_left_is_9 $
-
-~block_B_left_is_4 ~block_B_left_is_5 $
-~block_B_left_is_4 ~block_B_left_is_6 $
-~block_B_left_is_4 ~block_B_left_is_7 $
-~block_B_left_is_4 ~block_B_left_is_8 $
-~block_B_left_is_4 ~block_B_left_is_9 $
-
-~block_B_left_is_5 ~block_B_left_is_6 $
-~block_B_left_is_5 ~block_B_left_is_7 $
-~block_B_left_is_5 ~block_B_left_is_8 $
-~block_B_left_is_5 ~block_B_left_is_9 $
-
-~block_B_left_is_6 ~block_B_left_is_7 $
-~block_B_left_is_6 ~block_B_left_is_8 $
-~block_B_left_is_6 ~block_B_left_is_9 $
-
-~block_B_left_is_7 ~block_B_left_is_8 $
-~block_B_left_is_7 ~block_B_left_is_9 $
-
-~block_B_left_is_8 ~block_B_left_is_9 $
-
-~block_C_top_is_0 ~block_C_top_is_1 $
-~block_C_top_is_0 ~block_C_top_is_2 $
-~block_C_top_is_0 ~block_C_top_is_3 $
-~block_C_top_is_0 ~block_C_top_is_4 $
-~block_C_top_is_0 ~block_C_top_is_5 $
-~block_C_top_is_0 ~block_C_top_is_6 $
-~block_C_top_is_0 ~block_C_top_is_7 $
-~block_C_top_is_0 ~block_C_top_is_8 $
-~block_C_top_is_0 ~block_C_top_is_9 $
-
-~block_C_top_is_1 ~block_C_top_is_2 $
-~block_C_top_is_1 ~block_C_top_is_3 $
-~block_C_top_is_1 ~block_C_top_is_4 $
-~block_C_top_is_1 ~block_C_top_is_5 $
-~block_C_top_is_1 ~block_C_top_is_6 $
-~block_C_top_is_1 ~block_C_top_is_7 $
-~block_C_top_is_1 ~block_C_top_is_8 $
-~block_C_top_is_1 ~block_C_top_is_9 $
-
-~block_C_top_is_2 ~block_C_top_is_3 $
-~block_C_top_is_2 ~block_C_top_is_4 $
-~block_C_top_is_2 ~block_C_top_is_5 $
-~block_C_top_is_2 ~block_C_top_is_6 $
-~block_C_top_is_2 ~block_C_top_is_7 $
-~block_C_top_is_2 ~block_C_top_is_8 $
-~block_C_top_is_2 ~block_C_top_is_9 $
-
-~block_C_top_is_3 ~block_C_top_is_4 $
-~block_C_top_is_3 ~block_C_top_is_5 $
-~block_C_top_is_3 ~block_C_top_is_6 $
-~block_C_top_is_3 ~block_C_top_is_7 $
-~block_C_top_is_3 ~block_C_top_is_8 $
-~block_C_top_is_3 ~block_C_top_is_9 $
-
-~block_C_top_is_4 ~block_C_top_is_5 $
-~block_C_top_is_4 ~block_C_top_is_6 $
-~block_C_top_is_4 ~block_C_top_is_7 $
-~block_C_top_is_4 ~block_C_top_is_8 $
-~block_C_top_is_4 ~block_C_top_is_9 $
-
-~block_C_top_is_5 ~block_C_top_is_6 $
-~block_C_top_is_5 ~block_C_top_is_7 $
-~block_C_top_is_5 ~block_C_top_is_8 $
-~block_C_top_is_5 ~block_C_top_is_9 $
-
-~block_C_top_is_6 ~block_C_top_is_7 $
-~block_C_top_is_6 ~block_C_top_is_8 $
-~block_C_top_is_6 ~block_C_top_is_9 $
-
-~block_C_top_is_7 ~block_C_top_is_8 $
-~block_C_top_is_7 ~block_C_top_is_9 $
-
-~block_C_top_is_8 ~block_C_top_is_9 $
-
-~block_C_right_is_0 ~block_C_right_is_1 $
-~block_C_right_is_0 ~block_C_right_is_2 $
-~block_C_right_is_0 ~block_C_right_is_3 $
-~block_C_right_is_0 ~block_C_right_is_4 $
-~block_C_right_is_0 ~block_C_right_is_5 $
-~block_C_right_is_0 ~block_C_right_is_6 $
-~block_C_right_is_0 ~block_C_right_is_7 $
-~block_C_right_is_0 ~block_C_right_is_8 $
-~block_C_right_is_0 ~block_C_right_is_9 $
-
-~block_C_right_is_1 ~block_C_right_is_2 $
-~block_C_right_is_1 ~block_C_right_is_3 $
-~block_C_right_is_1 ~block_C_right_is_4 $
-~block_C_right_is_1 ~block_C_right_is_5 $
-~block_C_right_is_1 ~block_C_right_is_6 $
-~block_C_right_is_1 ~block_C_right_is_7 $
-~block_C_right_is_1 ~block_C_right_is_8 $
-~block_C_right_is_1 ~block_C_right_is_9 $
-
-~block_C_right_is_2 ~block_C_right_is_3 $
-~block_C_right_is_2 ~block_C_right_is_4 $
-~block_C_right_is_2 ~block_C_right_is_5 $
-~block_C_right_is_2 ~block_C_right_is_6 $
-~block_C_right_is_2 ~block_C_right_is_7 $
-~block_C_right_is_2 ~block_C_right_is_8 $
-~block_C_right_is_2 ~block_C_right_is_9 $
-
-~block_C_right_is_3 ~block_C_right_is_4 $
-~block_C_right_is_3 ~block_C_right_is_5 $
-~block_C_right_is_3 ~block_C_right_is_6 $
-~block_C_right_is_3 ~block_C_right_is_7 $
-~block_C_right_is_3 ~block_C_right_is_8 $
-~block_C_right_is_3 ~block_C_right_is_9 $
-
-~block_C_right_is_4 ~block_C_right_is_5 $
-~block_C_right_is_4 ~block_C_right_is_6 $
-~block_C_right_is_4 ~block_C_right_is_7 $
-~block_C_right_is_4 ~block_C_right_is_8 $
-~block_C_right_is_4 ~block_C_right_is_9 $
-
-~block_C_right_is_5 ~block_C_right_is_6 $
-~block_C_right_is_5 ~block_C_right_is_7 $
-~block_C_right_is_5 ~block_C_right_is_8 $
-~block_C_right_is_5 ~block_C_right_is_9 $
-
-~block_C_right_is_6 ~block_C_right_is_7 $
-~block_C_right_is_6 ~block_C_right_is_8 $
-~block_C_right_is_6 ~block_C_right_is_9 $
-
-~block_C_right_is_7 ~block_C_right_is_8 $
-~block_C_right_is_7 ~block_C_right_is_9 $
-
-~block_C_right_is_8 ~block_C_right_is_9 $
-
-~block_C_bottom_is_0 ~block_C_bottom_is_1 $
-~block_C_bottom_is_0 ~block_C_bottom_is_2 $
-~block_C_bottom_is_0 ~block_C_bottom_is_3 $
-~block_C_bottom_is_0 ~block_C_bottom_is_4 $
-~block_C_bottom_is_0 ~block_C_bottom_is_5 $
-~block_C_bottom_is_0 ~block_C_bottom_is_6 $
-~block_C_bottom_is_0 ~block_C_bottom_is_7 $
-~block_C_bottom_is_0 ~block_C_bottom_is_8 $
-~block_C_bottom_is_0 ~block_C_bottom_is_9 $
-
-~block_C_bottom_is_1 ~block_C_bottom_is_2 $
-~block_C_bottom_is_1 ~block_C_bottom_is_3 $
-~block_C_bottom_is_1 ~block_C_bottom_is_4 $
-~block_C_bottom_is_1 ~block_C_bottom_is_5 $
-~block_C_bottom_is_1 ~block_C_bottom_is_6 $
-~block_C_bottom_is_1 ~block_C_bottom_is_7 $
-~block_C_bottom_is_1 ~block_C_bottom_is_8 $
-~block_C_bottom_is_1 ~block_C_bottom_is_9 $
-
-~block_C_bottom_is_2 ~block_C_bottom_is_3 $
-~block_C_bottom_is_2 ~block_C_bottom_is_4 $
-~block_C_bottom_is_2 ~block_C_bottom_is_5 $
-~block_C_bottom_is_2 ~block_C_bottom_is_6 $
-~block_C_bottom_is_2 ~block_C_bottom_is_7 $
-~block_C_bottom_is_2 ~block_C_bottom_is_8 $
-~block_C_bottom_is_2 ~block_C_bottom_is_9 $
-
-~block_C_bottom_is_3 ~block_C_bottom_is_4 $
-~block_C_bottom_is_3 ~block_C_bottom_is_5 $
-~block_C_bottom_is_3 ~block_C_bottom_is_6 $
-~block_C_bottom_is_3 ~block_C_bottom_is_7 $
-~block_C_bottom_is_3 ~block_C_bottom_is_8 $
-~block_C_bottom_is_3 ~block_C_bottom_is_9 $
-
-~block_C_bottom_is_4 ~block_C_bottom_is_5 $
-~block_C_bottom_is_4 ~block_C_bottom_is_6 $
-~block_C_bottom_is_4 ~block_C_bottom_is_7 $
-~block_C_bottom_is_4 ~block_C_bottom_is_8 $
-~block_C_bottom_is_4 ~block_C_bottom_is_9 $
-
-~block_C_bottom_is_5 ~block_C_bottom_is_6 $
-~block_C_bottom_is_5 ~block_C_bottom_is_7 $
-~block_C_bottom_is_5 ~block_C_bottom_is_8 $
-~block_C_bottom_is_5 ~block_C_bottom_is_9 $
-
-~block_C_bottom_is_6 ~block_C_bottom_is_7 $
-~block_C_bottom_is_6 ~block_C_bottom_is_8 $
-~block_C_bottom_is_6 ~block_C_bottom_is_9 $
-
-~block_C_bottom_is_7 ~block_C_bottom_is_8 $
-~block_C_bottom_is_7 ~block_C_bottom_is_9 $
-
-~block_C_bottom_is_8 ~block_C_bottom_is_9 $
-
-~block_C_left_is_0 ~block_C_left_is_1 $
-~block_C_left_is_0 ~block_C_left_is_2 $
-~block_C_left_is_0 ~block_C_left_is_3 $
-~block_C_left_is_0 ~block_C_left_is_4 $
-~block_C_left_is_0 ~block_C_left_is_5 $
-~block_C_left_is_0 ~block_C_left_is_6 $
-~block_C_left_is_0 ~block_C_left_is_7 $
-~block_C_left_is_0 ~block_C_left_is_8 $
-~block_C_left_is_0 ~block_C_left_is_9 $
-
-~block_C_left_is_1 ~block_C_left_is_2 $
-~block_C_left_is_1 ~block_C_left_is_3 $
-~block_C_left_is_1 ~block_C_left_is_4 $
-~block_C_left_is_1 ~block_C_left_is_5 $
-~block_C_left_is_1 ~block_C_left_is_6 $
-~block_C_left_is_1 ~block_C_left_is_7 $
-~block_C_left_is_1 ~block_C_left_is_8 $
-~block_C_left_is_1 ~block_C_left_is_9 $
-
-~block_C_left_is_2 ~block_C_left_is_3 $
-~block_C_left_is_2 ~block_C_left_is_4 $
-~block_C_left_is_2 ~block_C_left_is_5 $
-~block_C_left_is_2 ~block_C_left_is_6 $
-~block_C_left_is_2 ~block_C_left_is_7 $
-~block_C_left_is_2 ~block_C_left_is_8 $
-~block_C_left_is_2 ~block_C_left_is_9 $
-
-~block_C_left_is_3 ~block_C_left_is_4 $
-~block_C_left_is_3 ~block_C_left_is_5 $
-~block_C_left_is_3 ~block_C_left_is_6 $
-~block_C_left_is_3 ~block_C_left_is_7 $
-~block_C_left_is_3 ~block_C_left_is_8 $
-~block_C_left_is_3 ~block_C_left_is_9 $
-
-~block_C_left_is_4 ~block_C_left_is_5 $
-~block_C_left_is_4 ~block_C_left_is_6 $
-~block_C_left_is_4 ~block_C_left_is_7 $
-~block_C_left_is_4 ~block_C_left_is_8 $
-~block_C_left_is_4 ~block_C_left_is_9 $
-
-~block_C_left_is_5 ~block_C_left_is_6 $
-~block_C_left_is_5 ~block_C_left_is_7 $
-~block_C_left_is_5 ~block_C_left_is_8 $
-~block_C_left_is_5 ~block_C_left_is_9 $
-
-~block_C_left_is_6 ~block_C_left_is_7 $
-~block_C_left_is_6 ~block_C_left_is_8 $
-~block_C_left_is_6 ~block_C_left_is_9 $
-
-~block_C_left_is_7 ~block_C_left_is_8 $
-~block_C_left_is_7 ~block_C_left_is_9 $
-
-~block_C_left_is_8 ~block_C_left_is_9 $
-
-~block_D_top_is_0 ~block_D_top_is_1 $
-~block_D_top_is_0 ~block_D_top_is_2 $
-~block_D_top_is_0 ~block_D_top_is_3 $
-~block_D_top_is_0 ~block_D_top_is_4 $
-~block_D_top_is_0 ~block_D_top_is_5 $
-~block_D_top_is_0 ~block_D_top_is_6 $
-~block_D_top_is_0 ~block_D_top_is_7 $
-~block_D_top_is_0 ~block_D_top_is_8 $
-~block_D_top_is_0 ~block_D_top_is_9 $
-
-~block_D_top_is_1 ~block_D_top_is_2 $
-~block_D_top_is_1 ~block_D_top_is_3 $
-~block_D_top_is_1 ~block_D_top_is_4 $
-~block_D_top_is_1 ~block_D_top_is_5 $
-~block_D_top_is_1 ~block_D_top_is_6 $
-~block_D_top_is_1 ~block_D_top_is_7 $
-~block_D_top_is_1 ~block_D_top_is_8 $
-~block_D_top_is_1 ~block_D_top_is_9 $
-
-~block_D_top_is_2 ~block_D_top_is_3 $
-~block_D_top_is_2 ~block_D_top_is_4 $
-~block_D_top_is_2 ~block_D_top_is_5 $
-~block_D_top_is_2 ~block_D_top_is_6 $
-~block_D_top_is_2 ~block_D_top_is_7 $
-~block_D_top_is_2 ~block_D_top_is_8 $
-~block_D_top_is_2 ~block_D_top_is_9 $
-
-~block_D_top_is_3 ~block_D_top_is_4 $
-~block_D_top_is_3 ~block_D_top_is_5 $
-~block_D_top_is_3 ~block_D_top_is_6 $
-~block_D_top_is_3 ~block_D_top_is_7 $
-~block_D_top_is_3 ~block_D_top_is_8 $
-~block_D_top_is_3 ~block_D_top_is_9 $
-
-~block_D_top_is_4 ~block_D_top_is_5 $
-~block_D_top_is_4 ~block_D_top_is_6 $
-~block_D_top_is_4 ~block_D_top_is_7 $
-~block_D_top_is_4 ~block_D_top_is_8 $
-~block_D_top_is_4 ~block_D_top_is_9 $
-
-~block_D_top_is_5 ~block_D_top_is_6 $
-~block_D_top_is_5 ~block_D_top_is_7 $
-~block_D_top_is_5 ~block_D_top_is_8 $
-~block_D_top_is_5 ~block_D_top_is_9 $
-
-~block_D_top_is_6 ~block_D_top_is_7 $
-~block_D_top_is_6 ~block_D_top_is_8 $
-~block_D_top_is_6 ~block_D_top_is_9 $
-
-~block_D_top_is_7 ~block_D_top_is_8 $
-~block_D_top_is_7 ~block_D_top_is_9 $
-
-~block_D_top_is_8 ~block_D_top_is_9 $
-
-~block_D_right_is_0 ~block_D_right_is_1 $
-~block_D_right_is_0 ~block_D_right_is_2 $
-~block_D_right_is_0 ~block_D_right_is_3 $
-~block_D_right_is_0 ~block_D_right_is_4 $
-~block_D_right_is_0 ~block_D_right_is_5 $
-~block_D_right_is_0 ~block_D_right_is_6 $
-~block_D_right_is_0 ~block_D_right_is_7 $
-~block_D_right_is_0 ~block_D_right_is_8 $
-~block_D_right_is_0 ~block_D_right_is_9 $
-
-~block_D_right_is_1 ~block_D_right_is_2 $
-~block_D_right_is_1 ~block_D_right_is_3 $
-~block_D_right_is_1 ~block_D_right_is_4 $
-~block_D_right_is_1 ~block_D_right_is_5 $
-~block_D_right_is_1 ~block_D_right_is_6 $
-~block_D_right_is_1 ~block_D_right_is_7 $
-~block_D_right_is_1 ~block_D_right_is_8 $
-~block_D_right_is_1 ~block_D_right_is_9 $
-
-~block_D_right_is_2 ~block_D_right_is_3 $
-~block_D_right_is_2 ~block_D_right_is_4 $
-~block_D_right_is_2 ~block_D_right_is_5 $
-~block_D_right_is_2 ~block_D_right_is_6 $
-~block_D_right_is_2 ~block_D_right_is_7 $
-~block_D_right_is_2 ~block_D_right_is_8 $
-~block_D_right_is_2 ~block_D_right_is_9 $
-
-~block_D_right_is_3 ~block_D_right_is_4 $
-~block_D_right_is_3 ~block_D_right_is_5 $
-~block_D_right_is_3 ~block_D_right_is_6 $
-~block_D_right_is_3 ~block_D_right_is_7 $
-~block_D_right_is_3 ~block_D_right_is_8 $
-~block_D_right_is_3 ~block_D_right_is_9 $
-
-~block_D_right_is_4 ~block_D_right_is_5 $
-~block_D_right_is_4 ~block_D_right_is_6 $
-~block_D_right_is_4 ~block_D_right_is_7 $
-~block_D_right_is_4 ~block_D_right_is_8 $
-~block_D_right_is_4 ~block_D_right_is_9 $
-
-~block_D_right_is_5 ~block_D_right_is_6 $
-~block_D_right_is_5 ~block_D_right_is_7 $
-~block_D_right_is_5 ~block_D_right_is_8 $
-~block_D_right_is_5 ~block_D_right_is_9 $
-
-~block_D_right_is_6 ~block_D_right_is_7 $
-~block_D_right_is_6 ~block_D_right_is_8 $
-~block_D_right_is_6 ~block_D_right_is_9 $
-
-~block_D_right_is_7 ~block_D_right_is_8 $
-~block_D_right_is_7 ~block_D_right_is_9 $
-
-~block_D_right_is_8 ~block_D_right_is_9 $
-
-~block_D_bottom_is_0 ~block_D_bottom_is_1 $
-~block_D_bottom_is_0 ~block_D_bottom_is_2 $
-~block_D_bottom_is_0 ~block_D_bottom_is_3 $
-~block_D_bottom_is_0 ~block_D_bottom_is_4 $
-~block_D_bottom_is_0 ~block_D_bottom_is_5 $
-~block_D_bottom_is_0 ~block_D_bottom_is_6 $
-~block_D_bottom_is_0 ~block_D_bottom_is_7 $
-~block_D_bottom_is_0 ~block_D_bottom_is_8 $
-~block_D_bottom_is_0 ~block_D_bottom_is_9 $
-
-~block_D_bottom_is_1 ~block_D_bottom_is_2 $
-~block_D_bottom_is_1 ~block_D_bottom_is_3 $
-~block_D_bottom_is_1 ~block_D_bottom_is_4 $
-~block_D_bottom_is_1 ~block_D_bottom_is_5 $
-~block_D_bottom_is_1 ~block_D_bottom_is_6 $
-~block_D_bottom_is_1 ~block_D_bottom_is_7 $
-~block_D_bottom_is_1 ~block_D_bottom_is_8 $
-~block_D_bottom_is_1 ~block_D_bottom_is_9 $
-
-~block_D_bottom_is_2 ~block_D_bottom_is_3 $
-~block_D_bottom_is_2 ~block_D_bottom_is_4 $
-~block_D_bottom_is_2 ~block_D_bottom_is_5 $
-~block_D_bottom_is_2 ~block_D_bottom_is_6 $
-~block_D_bottom_is_2 ~block_D_bottom_is_7 $
-~block_D_bottom_is_2 ~block_D_bottom_is_8 $
-~block_D_bottom_is_2 ~block_D_bottom_is_9 $
-
-~block_D_bottom_is_3 ~block_D_bottom_is_4 $
-~block_D_bottom_is_3 ~block_D_bottom_is_5 $
-~block_D_bottom_is_3 ~block_D_bottom_is_6 $
-~block_D_bottom_is_3 ~block_D_bottom_is_7 $
-~block_D_bottom_is_3 ~block_D_bottom_is_8 $
-~block_D_bottom_is_3 ~block_D_bottom_is_9 $
-
-~block_D_bottom_is_4 ~block_D_bottom_is_5 $
-~block_D_bottom_is_4 ~block_D_bottom_is_6 $
-~block_D_bottom_is_4 ~block_D_bottom_is_7 $
-~block_D_bottom_is_4 ~block_D_bottom_is_8 $
-~block_D_bottom_is_4 ~block_D_bottom_is_9 $
-
-~block_D_bottom_is_5 ~block_D_bottom_is_6 $
-~block_D_bottom_is_5 ~block_D_bottom_is_7 $
-~block_D_bottom_is_5 ~block_D_bottom_is_8 $
-~block_D_bottom_is_5 ~block_D_bottom_is_9 $
-
-~block_D_bottom_is_6 ~block_D_bottom_is_7 $
-~block_D_bottom_is_6 ~block_D_bottom_is_8 $
-~block_D_bottom_is_6 ~block_D_bottom_is_9 $
-
-~block_D_bottom_is_7 ~block_D_bottom_is_8 $
-~block_D_bottom_is_7 ~block_D_bottom_is_9 $
-
-~block_D_bottom_is_8 ~block_D_bottom_is_9 $
-
-~block_D_left_is_0 ~block_D_left_is_1 $
-~block_D_left_is_0 ~block_D_left_is_2 $
-~block_D_left_is_0 ~block_D_left_is_3 $
-~block_D_left_is_0 ~block_D_left_is_4 $
-~block_D_left_is_0 ~block_D_left_is_5 $
-~block_D_left_is_0 ~block_D_left_is_6 $
-~block_D_left_is_0 ~block_D_left_is_7 $
-~block_D_left_is_0 ~block_D_left_is_8 $
-~block_D_left_is_0 ~block_D_left_is_9 $
-
-~block_D_left_is_1 ~block_D_left_is_2 $
-~block_D_left_is_1 ~block_D_left_is_3 $
-~block_D_left_is_1 ~block_D_left_is_4 $
-~block_D_left_is_1 ~block_D_left_is_5 $
-~block_D_left_is_1 ~block_D_left_is_6 $
-~block_D_left_is_1 ~block_D_left_is_7 $
-~block_D_left_is_1 ~block_D_left_is_8 $
-~block_D_left_is_1 ~block_D_left_is_9 $
-
-~block_D_left_is_2 ~block_D_left_is_3 $
-~block_D_left_is_2 ~block_D_left_is_4 $
-~block_D_left_is_2 ~block_D_left_is_5 $
-~block_D_left_is_2 ~block_D_left_is_6 $
-~block_D_left_is_2 ~block_D_left_is_7 $
-~block_D_left_is_2 ~block_D_left_is_8 $
-~block_D_left_is_2 ~block_D_left_is_9 $
-
-~block_D_left_is_3 ~block_D_left_is_4 $
-~block_D_left_is_3 ~block_D_left_is_5 $
-~block_D_left_is_3 ~block_D_left_is_6 $
-~block_D_left_is_3 ~block_D_left_is_7 $
-~block_D_left_is_3 ~block_D_left_is_8 $
-~block_D_left_is_3 ~block_D_left_is_9 $
-
-~block_D_left_is_4 ~block_D_left_is_5 $
-~block_D_left_is_4 ~block_D_left_is_6 $
-~block_D_left_is_4 ~block_D_left_is_7 $
-~block_D_left_is_4 ~block_D_left_is_8 $
-~block_D_left_is_4 ~block_D_left_is_9 $
-
-~block_D_left_is_5 ~block_D_left_is_6 $
-~block_D_left_is_5 ~block_D_left_is_7 $
-~block_D_left_is_5 ~block_D_left_is_8 $
-~block_D_left_is_5 ~block_D_left_is_9 $
-
-~block_D_left_is_6 ~block_D_left_is_7 $
-~block_D_left_is_6 ~block_D_left_is_8 $
-~block_D_left_is_6 ~block_D_left_is_9 $
-
-~block_D_left_is_7 ~block_D_left_is_8 $
-~block_D_left_is_7 ~block_D_left_is_9 $
-
-~block_D_left_is_8 ~block_D_left_is_9 $
-
-
-//squares relations
+#~block_A_in_square_A $
+#~block_B_in_square_B $
+#~block_C_in_square_C $
+#~block_D_in_square_D $

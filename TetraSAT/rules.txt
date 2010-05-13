@@ -9053,22 +9053,3 @@ block_15_in_square_0 block_15_in_square_1 block_15_in_square_2 block_15_in_squar
 ~block_14_in_square_15 ~block_15_in_square_14 $
 
 
-# block 15 impossible neighbors
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

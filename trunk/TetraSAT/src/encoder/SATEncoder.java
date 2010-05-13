@@ -76,7 +76,7 @@ public class SATEncoder {
 
 		Boolean incompatible = false;
 
-		for (int i = 0; i < numberOfBlocks; i++) {
+		for (int i = 0; i < numberOfBlocks-1; i++) {
 			rulesList += "# block " + i + " impossible neighbors\n\n";
 			for (int j = 0; j < numberOfBlocks; j++) {
 				for (int k = 0; k < numberOfBlocks; k++) {

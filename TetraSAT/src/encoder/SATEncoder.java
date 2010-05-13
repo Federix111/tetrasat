@@ -3,7 +3,9 @@ package encoder;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
+import main.Block;
 import main.Field;
 
 public class SATEncoder {
@@ -18,9 +20,13 @@ public class SATEncoder {
 		numberOfBlocks = field.blocks.size();
 		sideLength = (int) Math.sqrt(numberOfBlocks);
 
+	}
+	
+	public void encode() {
+		
 		encodeRules();
 		System.out.println("ENCODING TERMINATED");
-
+		
 	}
 
 	private void encodeRules() {
@@ -75,6 +81,7 @@ public class SATEncoder {
 	private void dynamicRules() {
 
 		Boolean incompatible = false;
+		ArrayList<Block> blocksList = field.blocks;
 
 		for (int i = 0; i < numberOfBlocks-1; i++) {
 			rulesList += "# block " + i + " impossible neighbors\n\n";
@@ -82,34 +89,40 @@ public class SATEncoder {
 				for (int k = 0; k < numberOfBlocks; k++) {
 					if(k!=i) {
 						for (int l = 0; l < numberOfBlocks; l++) {
-							if(j-sideLength == l) {
-								//check if i.top == k.bottom, if different => set rule
-								if(field.blocks.get(i).getTop() != field.blocks.get(k).getDown()) {
-									incompatible = true;
+							if(l!=j){
+								if((Math.abs(j-l) % sideLength == 0) || Math.abs(j-l) == 1) {
+									Block temp1 = blocksList.get(i);
+									Block temp2 = blocksList.get(k);
+									if(j-sideLength == l) {
+										//check if i.top == k.bottom, if different => set rule
+										if(temp1.getTop() != temp2.getDown()) {
+											incompatible = true;
+										}
+									} else if(j+sideLength == l) {
+										//check if i.bottom == k.top, if different => set rule
+										if(temp1.getDown() != temp2.getTop()) {
+											incompatible = true;
+										}
+									} else if(j-1 == l && (j % sideLength > l % sideLength)) {
+										//check if i.left == k.right, if different => set rule
+										if(temp1.getLeft() != temp2.getRight()) {
+											incompatible = true;
+										}
+									} else if(j+1 == l && (j % sideLength < l % sideLength)) {
+										//check if i.right == k.left, if different => set rule
+										if(temp1.getRight() != temp2.getLeft()) {
+											incompatible = true;
+										}
+									}
+									if(incompatible) {
+										String rule = "~block_" + i + "_in_square_" + j + " ~block_" + k + "_in_square_" + l + " $\n";
+										String reverseRule = "~block_" + k + "_in_square_" + l + " ~block_" + i + "_in_square_" + j + " $\n";
+										if(!rulesList.contains(reverseRule)) {
+											rulesList += rule;
+										}
+										incompatible = false;
+									}
 								}
-							} else if(j+sideLength == l) {
-								//check if i.bottom == k.top, if different => set rule
-								if(field.blocks.get(i).getDown() != field.blocks.get(k).getTop()) {
-									incompatible = true;
-								}
-							} else if(j-1 == l && (j % sideLength > l % sideLength)) {
-								//check if i.left == k.right, if different => set rule
-								if(field.blocks.get(i).getLeft() != field.blocks.get(k).getRight()) {
-									incompatible = true;
-								}
-							} else if(j+1 == l && (j % sideLength < l % sideLength)) {
-								//check if i.right == k.left, if different => set rule
-								if(field.blocks.get(i).getRight() != field.blocks.get(k).getLeft()) {
-									incompatible = true;
-								}
-							}
-							if(incompatible) {
-								String rule = "~block_" + i + "_in_square_" + j + " ~block_" + k + "_in_square_" + l + " $\n";
-								String reverseRule = "~block_" + k + "_in_square_" + l + " ~block_" + i + "_in_square_" + j + " $\n";
-								if(!rulesList.contains(reverseRule)) {
-									rulesList += rule;
-								}
-								incompatible = false;
 							}
 						}
 					}

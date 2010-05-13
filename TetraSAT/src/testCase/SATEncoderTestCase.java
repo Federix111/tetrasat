@@ -37,11 +37,19 @@ public class SATEncoderTestCase {
 		BlockInputParser parser = new BlockInputParser("input/testBlocks");
 		
 		Field field = parser.getField();
+		
 //		for (Block block : blocks) {
 //			field.addBlock(block);
 //		}
 		
 		SATEncoder encoder = new SATEncoder(field);
+		
+		long start = System.currentTimeMillis();
+		encoder.encode();
+		
+		long end = System.currentTimeMillis();
+		
+		System.out.println((end-start) + "ms");
 		
 		
 	}

@@ -21,12 +21,12 @@ public class SATEncoder {
 		sideLength = (int) Math.sqrt(numberOfBlocks);
 
 	}
-	
+
 	public void encode() {
-		
+
 		encodeRules();
 		System.out.println("ENCODING TERMINATED");
-		
+
 	}
 
 	private void encodeRules() {
@@ -85,14 +85,14 @@ public class SATEncoder {
 
 		for (int i = 0; i < numberOfBlocks-1; i++) {
 			rulesList += "# block " + i + " impossible neighbors\n\n";
+			Block temp1 = blocksList.get(i);
 			for (int j = 0; j < numberOfBlocks; j++) {
 				for (int k = 0; k < numberOfBlocks; k++) {
 					if(k!=i) {
-						for (int l = 0; l < numberOfBlocks; l++) {
+						Block temp2 = blocksList.get(k);
+						for (int l = 0; (l>j-sideLength+1 || l<j+sideLength+1) && l < numberOfBlocks; l++) {
 							if(l!=j){
 								if((Math.abs(j-l) % sideLength == 0) || Math.abs(j-l) == 1) {
-									Block temp1 = blocksList.get(i);
-									Block temp2 = blocksList.get(k);
 									if(j-sideLength == l) {
 										//check if i.top == k.bottom, if different => set rule
 										if(temp1.getTop() != temp2.getDown()) {

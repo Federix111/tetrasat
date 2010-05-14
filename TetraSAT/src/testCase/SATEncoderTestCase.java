@@ -9,11 +9,13 @@ import java.util.regex.Pattern;
 import parser.BlockInputParser;
 
 import encoder.SATEncoder;
+import main.Block;
 import main.Field;
 
 public class SATEncoderTestCase {
 
 	private static String output = "";
+	private static Field field;
 	/**
 	 * @param args
 	 */
@@ -25,7 +27,7 @@ public class SATEncoderTestCase {
 		
 		BlockInputParser parser = new BlockInputParser("input/realTetra");
 		
-		Field field = parser.getField();
+		field = parser.getField();
 		
 		SATEncoder encoder = new SATEncoder(field);
 		
@@ -75,12 +77,16 @@ public class SATEncoderTestCase {
 		
 		while(blocksMatcher.find()) {
 			System.out.println("Block: " + blocksMatcher.group(1) + "\tSquare: " + blocksMatcher.group(2));
+			field.orderedBlocks.add(field.blocks.get(Integer.parseInt(blocksMatcher.group(2))));
 		}
 		
 		while(timeMatcher.find()) {
 			System.out.println("COMPUTING TERMINATED\n" + timeMatcher.group(1));
 		}
 		
+		for(int i=0; i<field.orderedBlocks.size(); i++) {
+			System.out.println(field.orderedBlocks.get(i));
+		}
 		
 	}
 

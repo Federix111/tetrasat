@@ -2,6 +2,8 @@ package main;
 
 public class Block {
 	
+	private static int BLOCK_COUNTER = 0;
+	private int blockNumber;
 	private int top;
 	private int right;
 	private int down;
@@ -61,6 +63,11 @@ public class Block {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return ""+top+" "+right+" "+ down + " "+ left+"";
+	}
+	
+	public int addedToList(){
+		this.blockNumber = BLOCK_COUNTER++;
+		return blockNumber;
 	}
 	
 	

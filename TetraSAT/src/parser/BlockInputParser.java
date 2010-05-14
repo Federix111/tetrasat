@@ -39,6 +39,7 @@ public class BlockInputParser {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		field.finalizeField();
 	}
 	
 	public Field getField() {

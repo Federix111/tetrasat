@@ -77,15 +77,15 @@ public class SATEncoderTestCase {
 		
 		while(blocksMatcher.find()) {
 			System.out.println("Block: " + blocksMatcher.group(1) + "\tSquare: " + blocksMatcher.group(2));
-			field.orderedBlocks.add(field.blocks.get(Integer.parseInt(blocksMatcher.group(2))));
+			field.orderedBlocks[Integer.parseInt(blocksMatcher.group(2))] = field.blocks.get(Integer.parseInt(blocksMatcher.group(1)));
 		}
 		
 		while(timeMatcher.find()) {
 			System.out.println("COMPUTING TERMINATED\n" + timeMatcher.group(1));
 		}
 		
-		for(int i=0; i<field.orderedBlocks.size(); i++) {
-			System.out.println(field.orderedBlocks.get(i));
+		for(int i=0; i<field.orderedBlocks.length; i++) {
+			System.out.println(field.orderedBlocks[i]);
 		}
 		
 	}

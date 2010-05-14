@@ -24,7 +24,7 @@ public class SATEncoderTestCase {
 	public static void main(String[] args) {
 		
 		String freddCommand = " /sw/bin/miniwrapper -m /Users/Fredd/Documents/workspace/TetraSAT/rules.txt";
-		String hCommand = " /sw/bin/miniwrapper -m /Users/LoL/Documents/workspace/TetraSAT/rules.txt";
+		String hCommand = " /Users/adnan/Documents/Toc/miniwrapper/miniwrapper/miniwrapper -m /Users/adnan/Documents/Toc/workspace/TetraSAT/rules.txt";
 		
 		
 		BlockInputParser parser = new BlockInputParser("input/realTetra");
@@ -45,7 +45,7 @@ public class SATEncoderTestCase {
 		while(output == "") {
 			try
 			{
-				Process proc = Runtime.getRuntime().exec(freddCommand);
+				Process proc = Runtime.getRuntime().exec(hCommand);
 				BufferedReader read=new BufferedReader(new InputStreamReader(proc.getInputStream()));
 
 				while(read.ready())

@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Field {
 
@@ -11,12 +12,17 @@ public class Field {
 		blocks = new ArrayList<Block>();
 	}
 	
+	public Field(Block[] blocks){
+		this.blocks = (ArrayList<Block>) Arrays.asList(blocks);
+	}
+	
 	public void finalizeField(){
 		orderedBlocks = new Block[blocks.size()];
 	}
 	
 	public void addBlock(Block b){
 		blocks.add(b);
+		System.out.println(b.addedToList());
 	}
 
 	@Override

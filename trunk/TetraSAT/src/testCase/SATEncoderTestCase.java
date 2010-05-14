@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import outputHandler.ConsoleFormatter;
+
 import parser.BlockInputParser;
 
 import encoder.SATEncoder;
@@ -30,6 +32,8 @@ public class SATEncoderTestCase {
 		field = parser.getField();
 		
 		SATEncoder encoder = new SATEncoder(field);
+		
+		ConsoleFormatter.printStartingField(field);
 		
 		long start = System.currentTimeMillis();
 		encoder.encode();
@@ -84,9 +88,11 @@ public class SATEncoderTestCase {
 			System.out.println("COMPUTING TERMINATED\n" + timeMatcher.group(1));
 		}
 		
-		for(int i=0; i<field.orderedBlocks.length; i++) {
-			System.out.println(field.orderedBlocks[i]);
-		}
+//		for(int i=0; i<field.orderedBlocks.length; i++) {
+//			System.out.println(field.orderedBlocks[i]);
+//		}
+		
+		ConsoleFormatter.printSolvedField(field);
 		
 	}
 

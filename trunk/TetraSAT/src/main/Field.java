@@ -13,7 +13,7 @@ public class Field {
 	}
 	
 	public Field(Block[] blocks){
-		this.blocks = (ArrayList<Block>) Arrays.asList(blocks);
+		this.blocks = new ArrayList<Block>(Arrays.asList(blocks));
 	}
 	
 	public void finalizeField(){

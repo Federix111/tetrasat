@@ -45,10 +45,6 @@ public class ConsoleFormatter {
 			}
 		}
 		
-//		for (int i : data) {
-//			System.out.print(i + " ");
-//		}
-		
 		counter = 0;
 		
 		for(int j=0; j<side; j++) {

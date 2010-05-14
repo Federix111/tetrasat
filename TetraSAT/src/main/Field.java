@@ -22,7 +22,8 @@ public class Field {
 	
 	public void addBlock(Block b){
 		blocks.add(b);
-		System.out.println(b.addedToList());
+		b.addedToList();
+//		System.out.println(b.addedToList());
 	}
 
 	@Override

@@ -3,6 +3,8 @@ package testCase;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import parser.BlockInputParser;
 
@@ -60,10 +62,26 @@ public class SATEncoderTestCase {
 	}
 
 	private static void processOuput() {
+		
 		System.out.println("SATISFIABLE");
 		
-		//LOL!!!
-		System.out.println(output.subSequence(output.indexOf("Solving ... done (time elapsed ")+"Solving ... done (time elapsed ".length(), output.indexOf("s)", output.indexOf("Solving ... done (time elapsed "))) + "s");
+		Pattern timePattern = Pattern.compile("Solving.*([0-9]+\\.[0-9]+[s])");
+		
+		Matcher timeMatcher = timePattern.matcher(output);
+		
+		
+		Pattern blocksPattern = Pattern.compile("block_([0-9]+)_in_square_([0-9]+)");
+		Matcher blocksMatcher = blocksPattern.matcher(output);
+		
+		while(blocksMatcher.find()) {
+			System.out.println("Block: " + blocksMatcher.group(1) + "\tSquare: " + blocksMatcher.group(2));
+		}
+		
+		while(timeMatcher.find()) {
+			System.out.println("COMPUTING TERMINATED\n" + timeMatcher.group(1));
+		}
+		
+		
 	}
 
 }

@@ -10,9 +10,9 @@ import outputHandler.ConsoleFormatter;
 
 import parser.BlockInputParser;
 
+import elements.Block;
+import elements.Field;
 import encoder.SATEncoder;
-import main.Block;
-import main.Field;
 
 public class SATEncoderTestCase {
 
@@ -27,7 +27,7 @@ public class SATEncoderTestCase {
 		String hCommand = " /Users/adnan/Documents/Toc/miniwrapper/miniwrapper/miniwrapper -m /Users/adnan/Documents/Toc/workspace/TetraSAT/rules.txt";
 		
 		
-		BlockInputParser parser = new BlockInputParser("input/realTetra");
+		BlockInputParser parser = new BlockInputParser("input/testBlocks");
 		
 		field = parser.getField();
 		
@@ -45,7 +45,7 @@ public class SATEncoderTestCase {
 		while(output == "") {
 			try
 			{
-				Process proc = Runtime.getRuntime().exec(hCommand);
+				Process proc = Runtime.getRuntime().exec(freddCommand);
 				BufferedReader read=new BufferedReader(new InputStreamReader(proc.getInputStream()));
 
 				while(read.ready())
@@ -71,7 +71,7 @@ public class SATEncoderTestCase {
 		
 		System.out.println("SATISFIABLE");
 		
-		Pattern timePattern = Pattern.compile("Solving.*([0-9]+\\.[0-9]+[s])");
+		Pattern timePattern = Pattern.compile("Solving.* ([0-9]+\\.[0-9]+[s])");
 		
 		Matcher timeMatcher = timePattern.matcher(output);
 		

@@ -33,5 +33,17 @@ public class Field {
 		return blocks.toString();
 	}
 	
+	public String toFileDefinition() {
+		
+		String definition = "";
+		
+		for (Block block : blocks) {
+			definition += (block.toString() + "\n");
+		}
+		
+		return definition;
+		
+	}
+	
 	
 }

@@ -37,7 +37,7 @@ public class SATEncoder {
 //		dynamicRulesFast();
 		dynamicRulesTurbo();
 		try {
-			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("./rules.txt"));
+			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("./rules/rules.txt"));
 			bufferedWriter.write(rulesList);
 			bufferedWriter.close();
 		} catch (IOException e) {

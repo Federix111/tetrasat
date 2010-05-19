@@ -21,8 +21,8 @@ public class Solver {
 	 */
 	public static void main(String[] args) {
 		
-		String freddCommand = " /sw/bin/miniwrapper -m /Users/Fredd/Documents/workspace/TetraSAT/rules.txt";
-		String hCommand = " /Users/adnan/Documents/Toc/miniwrapper/miniwrapper/miniwrapper -m /Users/adnan/Documents/Toc/workspace/TetraSAT/rules.txt";
+		String freddCommand = " /sw/bin/miniwrapper -m /Users/Fredd/Documents/workspace/TetraSAT/rules/rules.txt";
+		String hCommand = " /Users/adnan/Documents/Toc/miniwrapper/miniwrapper/miniwrapper -m /Users/adnan/Documents/Toc/workspace/TetraSAT/rules/rules.txt";
 		
 		String command = freddCommand;
 		

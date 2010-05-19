@@ -3,9 +3,10 @@ package testCase;
 import java.util.Arrays;
 import java.util.Collections;
 
+import elements.Block;
+import elements.Field;
+
 import outputHandler.ConsoleFormatter;
-import main.Block;
-import main.Field;
 import generator.TetravexGenerator;
 
 public class TetravexGeneratorTestCase {
@@ -15,7 +16,7 @@ public class TetravexGeneratorTestCase {
 	 */
 	public static void main(String[] args) {
 		
-		TetravexGenerator generator = new TetravexGenerator(3);
+		TetravexGenerator generator = new TetravexGenerator(5);
 		
 		Block[] tetravex = generator.giveMeTetravex();
 		
@@ -32,6 +33,8 @@ public class TetravexGeneratorTestCase {
 		Field field = new Field(tetravex);
 		
 		ConsoleFormatter.printStartingField(field);
+		
+		
 		
 	}
 

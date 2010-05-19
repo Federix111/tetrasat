@@ -1,7 +1,7 @@
 package outputHandler;
 
-import main.Block;
-import main.Field;
+import elements.Block;
+import elements.Field;
 
 public class ConsoleFormatter {
 	

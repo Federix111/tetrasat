@@ -2,7 +2,8 @@ package testCase;
 
 import java.lang.reflect.Field;
 
-import main.Block;
+import elements.Block;
+
 
 public class BlockTestCase {
 	public static void main(String[] args){
@@ -20,7 +21,7 @@ public class BlockTestCase {
 		System.out.println(b3);
 		System.out.println(b4);
 		
-		main.Field field = new main.Field();
+		elements.Field field = new elements.Field();
 		field.addBlock(b1);
 		field.addBlock(b2);
 		field.addBlock(b3);

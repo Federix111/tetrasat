@@ -1,8 +1,11 @@
 package generator;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
-import main.Block;
+import elements.Block;
+
 
 public class TetravexGenerator {
 	
@@ -15,6 +18,18 @@ public class TetravexGenerator {
 		generator = new Random();
 		tetravexInLine = new int[side*side*4];
 		this.side = side;
+		
+	}
+	
+	public Block[] giveMeShuffledTetravex() {
+		
+		Block[] blockList = giveMeTetravex();
+		
+		for(int i=0; i<5; i++) {
+			Collections.shuffle(Arrays.asList(blockList));
+		}
+		
+		return blockList;
 		
 	}
 	

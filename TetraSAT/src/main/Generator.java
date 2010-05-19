@@ -24,15 +24,13 @@ public class Generator {
 		
 		ConsoleFormatter.printStartingField(field);
 		
-		System.out.println(field.toString());
-		
-//		try {
-//			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("./" + args[0]));
-//			bufferedWriter.write(field.toString());
-//			bufferedWriter.close();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("./input/" + args[0]));
+			bufferedWriter.write(field.toFileDefinition());
+			bufferedWriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 

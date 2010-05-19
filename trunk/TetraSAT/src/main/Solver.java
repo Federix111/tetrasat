@@ -28,7 +28,7 @@ public class Solver {
 		
 		output = "";
 		
-		BlockInputParser parser = new BlockInputParser(args[0]);
+		BlockInputParser parser = new BlockInputParser("./input/" + args[0]);
 		
 		field = parser.getField();
 		
